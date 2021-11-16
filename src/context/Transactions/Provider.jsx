@@ -14,9 +14,21 @@ const TransactionsProvider = (props) => {
 		});
 	};
 
+	const deleteTransaction = (id) => {
+		dispatch({
+			type: "DELETE_TRANSACTION",
+			payload: id,
+		});
+	};
+
 	return (
 		<TransactionsContext.Provider
-			value={{ transactions: state.transactions, addTransaction, dispatch }}>
+			value={{
+				transactions: state.transactions,
+				addTransaction,
+				deleteTransaction,
+				dispatch,
+			}}>
 			{props.children}
 		</TransactionsContext.Provider>
 	);
