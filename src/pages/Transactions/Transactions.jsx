@@ -37,4 +37,8 @@ const FlexBox = styled.div`
 
 const TransactionsContainer = styled.div`
 	padding: 2rem 0;
+
+	& > h4 {
+		padding-bottom: 2rem;
+	}
 `;

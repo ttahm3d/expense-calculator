@@ -11,6 +11,7 @@ const Transaction = (props) => {
 			{transactions.map((transaction) => (
 				<Wrapper key={transaction.id}>
 					<h4>{transaction.amount}</h4>
+					<p>{transaction.description}</p>
 				</Wrapper>
 			))}
 		</>
@@ -20,5 +21,6 @@ const Transaction = (props) => {
 export default Transaction;
 
 const Wrapper = styled.div`
-	padding: 0.875rem;
+	padding: 1rem 0.875rem;
+	box-shadow: 0 0 2px 2px hsla(200, 5%, 37%, 0.2);
 `;
