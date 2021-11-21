@@ -1,15 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Container } from "../../styles/globals";
 import ExpenseForm from "../../components/ExpenseForm";
 import IncomeForm from "../../components/IncomeForm";
 import styled from "styled-components";
-import { TransactionsContext } from "../../context/Transactions";
+import Transaction from "../../components/Transaction";
 
 const Expense = () => {
-	const { transactions } = useContext(TransactionsContext);
-
-	console.log(transactions);
-
 	return (
 		<div>
 			<Container>
@@ -17,7 +13,10 @@ const Expense = () => {
 					<IncomeForm />
 					<ExpenseForm />
 				</FlexBox>
-				<p>Transaction history</p>
+				<TransactionsContainer>
+					<h4>Transaction history</h4>
+					<Transaction />
+				</TransactionsContainer>
 			</Container>
 		</div>
 	);
@@ -25,7 +24,7 @@ const Expense = () => {
 
 export default Expense;
 
-export const FlexBox = styled.div`
+const FlexBox = styled.div`
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
@@ -34,4 +33,8 @@ export const FlexBox = styled.div`
 	& > div {
 		flex: 1;
 	}
+`;
+
+const TransactionsContainer = styled.div`
+	padding: 2rem 0;
 `;
