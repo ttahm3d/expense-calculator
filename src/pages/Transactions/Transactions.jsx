@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container } from "../../styles/globals";
 import ExpenseForm from "../../components/ExpenseForm";
 import IncomeForm from "../../components/IncomeForm";
 import styled from "styled-components";
 import Transaction from "../../components/Transaction";
+import TransactionsContext from "../../context/Transactions/Context";
 
 const Expense = () => {
+	const { transactions } = useContext(TransactionsContext);
+
 	return (
 		<div>
 			<Container>
@@ -15,7 +18,10 @@ const Expense = () => {
 				</FlexBox>
 				<TransactionsContainer>
 					<h4>Transaction history</h4>
-					<Transaction />
+					{transactions &&
+						transactions.map((transaction) => (
+							<Transaction key={transaction.id} {...transaction} />
+						))}
 				</TransactionsContainer>
 			</Container>
 		</div>
