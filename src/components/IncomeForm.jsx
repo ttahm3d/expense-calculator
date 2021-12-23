@@ -74,8 +74,8 @@ const InputWrapper = styled.div`
 	gap: 1rem;
 
 	input {
-		padding: 0.4rem;
-		font-size: 1.2rem;
+		padding: 0.5rem;
+		font-size: 1rem;
 		border: 1px solid hsla(200, 5%, 37%, 0.2);
 	}
 

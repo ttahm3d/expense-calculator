@@ -1,9 +1,11 @@
 import React, { Suspense } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Header from "./components/Header";
 import "./App.css";
 import { TransactionsProvider } from "./context/Transactions";
-import Modal from "./components/Modal";
+import styled, { keyframes } from "styled-components";
+import { Centered, Container } from "./styles/globals";
+// import Modal from "./components/Modal";
 
 const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
 const Transactions = React.lazy(() =>
@@ -16,7 +18,14 @@ function App() {
 			<BrowserRouter>
 				<Header />
 				<TransactionsProvider>
-					<Suspense fallback={<div>Loading....</div>}>
+					<Suspense
+						fallback={
+							<Container>
+								<Centered>
+									<Spinner />
+								</Centered>
+							</Container>
+						}>
 						<Switch>
 							<Route exact path="/dashboard">
 								<Dashboard />
@@ -25,7 +34,7 @@ function App() {
 								<Transactions />
 							</Route>
 							<Route exact path="/">
-								<Modal />
+								<Redirect to="/dashboard" />
 							</Route>
 						</Switch>
 					</Suspense>
@@ -36,3 +45,26 @@ function App() {
 }
 
 export default App;
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const Spinner = styled.div`
+	animation: ${rotate360} 1s linear infinite;
+	transform: translateZ(0);
+
+	border-top: 2px solid grey;
+	border-right: 2px solid grey;
+	border-bottom: 2px solid grey;
+	border-left: 4px solid black;
+	background: transparent;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+`;

@@ -5,3 +5,10 @@ export const Container = styled.div`
 	max-width: 720px;
 	margin: 0 auto;
 `;
+
+export const Centered = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 80vh;
+`;
