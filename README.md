@@ -14,7 +14,7 @@ Live Website Link - https://expense-calculator-tahir.netlify.app/
 
 **Desktop**
 
-<img src="https://drive.google.com/uc?export=view&id=1uZdTIIiZPt4IgJFz3B0sKkEcmsRpRMOD" alt="Desktop Screenshot" />
+![Desktop Screenshot](https://drive.google.com/uc?export=view&id=1uZdTIIiZPt4IgJFz3B0sKkEcmsRpRMOD)
 
 **Mobile**
 
